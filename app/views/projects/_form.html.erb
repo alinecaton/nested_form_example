@@ -6,6 +6,17 @@
     </div>
   </div>
 
+  <h2>Tasks</h2>
+
+  <%= f.fields_for :tasks do |task| %>
+    <%= render 'task_fields', :f => task %>
+  <% end %>
+
+  <div class="links">
+    <%= link_to_add_association 'add task', f, :tasks, :class => 'btn btn-primary' %>
+  </div>
+
+  <br>
 
   <%= f.submit nil, :class => 'btn btn-primary' %>
   <%= link_to 'Cancel', projects_path, :class => 'btn btn-default' %>

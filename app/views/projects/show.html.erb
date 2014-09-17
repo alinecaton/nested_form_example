@@ -2,8 +2,17 @@
   <h1><%= @project.name %></h1>
 </div>
 
-<!-- <dl class="dl-horizontal">
-</dl> -->
+
+<% @project.tasks.each do |task| %>
+  <div class="well">
+    <%= task.description %>
+    <br>
+    <strong>Is it done?</strong>
+    <%= task.done? ? 'Yes' : 'No' %>
+  </div>
+<% end %>
+
+<br>
 
 <%= link_to "Back", projects_path, :class => 'btn btn-default'  %>
 <%= link_to "Edit", edit_project_path(@project), :class => 'btn btn-default' %>
